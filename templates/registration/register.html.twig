@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="{{asset('css/login.css')}}"/>
+{% block body %}
+	<div class="wrapper">
+		<div class="title-text">
+			<div class="title login">Université Privée à Fès</div>
+		</div>
+		<div class="form-container">
+			<img class="title login" style="margin-left: 35px; width: 250px" src="{{ asset('img/logo_upf.png') }}" alt=""/>
+			<div class="form-inner">
+				{{ form_start(registrationForm) }}
+				{% if form_errors(registrationForm) %}
+					<div class="alert alert-danger">
+						{{ form_errors(registrationForm) }}
+					</div>
+				{% endif %}
+				<div class="field">
+					{{ form_widget(registrationForm.email, {
+                        'attr': {
+                            'placeholder': 'Email',
+                            'autocomplete': 'email',
+                            'required': 'required'
+                        }
+                    }) }}
+				</div>
+				<div style="margin-bottom: 10px;" class="field">
+					{{ form_widget(registrationForm.plainPassword, {
+                        'attr': {
+                            'placeholder': 'Password',
+                            'autocomplete': 'new-password',
+                            'required': 'required'
+                        }
+                    }) }}
+				</div>
+				<div class="field" style="margin-bottom: 10px;">
+					<div class="form-check">
+						{{ form_widget(registrationForm.agreeTerms, {
+            'attr': {
+                'class': 'form-check-input',
+                'style': 'width: 16px; height: 16px;'
+            }
+        }) }}
+						<label class="form-check-label" for="{{ registrationForm.agreeTerms.vars.id }}" style="vertical-align: middle;">Agree to Terms</label>
+					</div>
+				</div>
+
+
+				<div style="margin-bottom:10px" class="field btn">
+					<div class="btn-layer"></div>
+					<button value=" register" class="btn btn-lg btn-primary" type="submit">
+						Register
+					</button>
+				</div>
+				{{ form_end(registrationForm) }}
+			</div>
+		</div>
+	</div>
+{% endblock %}

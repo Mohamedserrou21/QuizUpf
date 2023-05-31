@@ -1,0 +1,4 @@
+{# admin/quiz_image.html.twig #}
+{% if entity.get('image') is not null %}
+	<img src="{{ path('app.path.product_images') ~ '/' ~ entity.get('image') }}" class="admin-thumbnail"/>
+{% endif %}

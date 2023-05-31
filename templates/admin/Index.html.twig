@@ -1,0 +1,51 @@
+{% extends '@EasyAdmin/layout.html.twig' %}
+{% block stylesheets %}
+	{{ encore_entry_link_tags('app') }}
+
+{% endblock %}
+{% block javascripts %}
+	{{ encore_entry_script_tags('app') }}
+{% endblock %}
+
+{% block content %}
+	<div class="jumbotron">
+
+		<h1 class="display-4">Université Privée à Fès
+		</h1>
+		<p class="lead">
+			L’Université Privée de Fès est la première université privée Reconnue par l’État au niveau de la capitale spirituelle et culturelle du royaume du Maroc
+			<img style="width: 250px ;; margin-top:20px; margin-left:420px" s src="{{asset('img/logo_upf.png')}}" class="z-index" alt=""/>
+
+		</p>
+
+		<div class="row">
+			<h1>
+				Statistique
+			</h1>
+		</div>
+
+		<div class="row mt-3">
+			<div class="col-6 alert-success">
+				<span class="display-3">{{ countUser['value'] }}</span>
+				Utilisateurs
+			</div>
+			<div class="col-6 alert-dark">
+				<span class="display-3">{{ countAnswer['value'] }}</span>
+				Reponses
+			</div>
+		</div>
+
+		<div class="row mt-3">
+			<div class="col-6 alert-dark">
+				<span class="display-3">{{ countQuestion['value'] }}</span>
+				Question
+			</div>
+			<div class="col-6 alert-success">
+				<span class="display-3">{{ countQuiz['value'] }}</span>
+				Quiz
+			</div>
+		</div>
+
+
+	</div>
+</div>{% endblock %}

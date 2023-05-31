@@ -1,0 +1,5 @@
+{% for question in value %}
+	<a href="{{ path('app_question_answers', { 'questionId': question.id }) }}">{{ question }}</a>
+	{% if not loop.last %},
+	{% endif %}
+{% endfor %}

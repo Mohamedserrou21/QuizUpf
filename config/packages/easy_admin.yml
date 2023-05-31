@@ -1,0 +1,14 @@
+# config/packages/easy_admin.yaml
+easy_admin:
+    design:
+        brand_color: 'crimson' # Couleur de votre marque
+    entities:
+        App\Entity\Quiz:
+            class: App\Controller\Admin\QuizCrudController
+            label: 'Quiz'
+        App\Entity\Question:
+            class: App\Controller\Admin\QuestionCrudController
+            label: 'Question'
+        App\Entity\Answers:
+            class: App\Controller\Admin\AnswersCrudController
+            label: 'Réponses'

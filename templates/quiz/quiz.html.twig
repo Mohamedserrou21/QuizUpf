@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Université Privée De Fès</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport">
+		<meta content="Free HTML Templates" name="keywords">
+		<meta
+		content="Free HTML Templates" name="description">
+
+		<!-- Favicon -->
+		<link
+		href="img/favicon.ico" rel="icon">
+
+		<!-- Google Web Fonts -->
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link
+		href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+		<!-- Font Awesome -->
+		<link
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+		<!-- Libraries Stylesheet -->
+		<link
+		href="{{asset('lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+
+		<!-- Customized Bootstrap Stylesheet -->
+		<link href="{{asset('css/quiz.css')}}" rel="stylesheet">
+	</head>
+
+	<body>
+		<!-- Topbar Start -->
+		<div class="container-fluid bg-dark">
+			<div style="background-color: #b11b81" class="row py-2 px-lg-5">
+				<div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+					<div class="d-inline-flex align-items-center text-white">
+						<small>
+							<i class="fa fa-phone-alt mr-2"></i>
+							+212 535 610 320</small>
+						<small class="px-3">|</small>
+						<small>
+							<i class="fa fa-envelope mr-2"></i>info@upf.ac.ma</small>
+					</div>
+				</div>
+				<div class="col-lg-6 text-center text-lg-right">
+					<div class="d-inline-flex align-items-center">
+						<a class="text-white px-2" href="">
+							<i class="fab fa-facebook-f"></i>
+						</a>
+						<a class="text-white px-2" href="">
+							<i class="fab fa-twitter"></i>
+						</a>
+						<a class="text-white px-2" href="">
+							<i class="fab fa-linkedin-in"></i>
+						</a>
+						<a class="text-white px-2" href="">
+							<i class="fab fa-instagram"></i>
+						</a>
+						<a class="text-white pl-2" href="">
+							<i class="fab fa-youtube"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Topbar End -->
+
+
+		<!-- Navbar Start -->
+		<div class="container-fluid p-0">
+			<nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
+				<a href="{{ path('app_index') }}" class="navbar-brand ml-lg-3">
+					<img src="{{asset('img/logo_upf.png')}}">
+				</a>
+				<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+					<div class="navbar-nav mx-auto py-0">
+						<a href="{{ path('app_index') }}" class="nav-item nav-link active">Home</a>
+						<a href="about.html" class="nav-item nav-link">About</a>
+						<a href="course.html" class="nav-item nav-link">Courses</a>
+						<div class="nav-item dropdown">
+							<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+							<div class="dropdown-menu m-0">
+								<a href="detail.html" class="dropdown-item">Course Detail</a>
+								<a href="feature.html" class="dropdown-item">Our Features</a>
+								<a href="team.html" class="dropdown-item">Instructors</a>
+								<a href="testimonial.html" class="dropdown-item">Testimonial</a>
+							</div>
+						</div>
+						<a href="contact.html" class="nav-item nav-link">Contact</a>
+					</div>
+					<div class="nav-item dropdown">
+						{% if app.user %}
+							<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Bienvenue,
+								{{ app.user.username }}</a>
+							<div class="dropdown-menu m-0">
+								<a href="{{ path('app_logout') }}" value="{{ path('app_logout') }}" class="dropdown-item">Déconnexion</a>
+
+							</div>
+						{% endif %}
+
+
+					</div>
+				</nav>
+			</div>
+			<!-- Navbar End -->
+
+
+			<!-- Header Start -->
+			<div class="jumbotron jumbotron-fluid position-relative overlay-bottom" style="margin-bottom: 90px;">
+				<div class="container text-center my-5 py-5">
+
+					<h1 class="text-white display-1 mb-5">{{ quiz.Titre }}</h1>
+
+				</div>
+			</div>
+			<!-- Header End -->
+
+
+			<!-- Quiz Form Start -->
+			<div class="container-fluid py-5">
+				<div class="container py-5">
+					<div class="row align-items-center">
+						<div class="col-lg-5 mb-5 mb-lg-0">
+							<div style="background-color: crimson;" class="bg-light d-flex flex-column justify-content-center px-5 quiz-contact" id="quiz-contact">
+								<div class="d-flex align-items-center mb-5">
+
+									<div class="mt-n1"></div>
+								</div>
+								<div class="d-flex align-items-center mb-5">
+
+									<div class="mt-n1"></div>
+								</div>
+								<div class="d-flex align-items-center">
+
+									<div class="mt-n1"></div>
+								</div>
+							</div>
+						</div>
+
+						<script>
+							// Calculate the height dynamically based on the number of questions
+var quizContact = document.getElementById("quiz-contact");
+var questionCount = {{ quiz.questions|length }};
+var minHeight = (questionCount * 170) + 180;
+quizContact.style.minHeight = minHeight + "px";
+						</script>
+
+						<div class="col-lg-7">
+							<div class="section-title position-relative mb-4">
+								<h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Quiz Form</h6>
+								<h1 class="display-4">{{ quiz.Titre }}</h1>
+							</div>
+							<div class="quiz-form">
+								<form method="POST" action="{{ path('user_submit_quiz', { 'id': quiz.id }) }}">
+									<div class="d-flex flex-wrap">
+										{% for question in quiz.questions %}
+											<div class="question flex-fill">
+												<span class="question-text">Question
+													{{ loop.index }}:<br>{{ question.content }}</span>
+												{% for answer in question.answers %}
+													<div class="answers">
+														<label class="answer-option">
+															<input type="radio" id="question{{ question.id }}_{{ answer.id }}" name="question{{ question.id }}" value="{{ answer.id }}" required>
+															<span class="answer-text">{{ answer.content }}</span>
+														</label>
+													</div>
+												{% endfor %}
+											</div>
+										{% endfor %}
+									</div>
+
+									<div class="submit-button">
+										<button class="btn btn-primary py-3 px-5" style="background-color: #b11b81" type="submit">Submit</button>
+									</div>
+								</form>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Quiz Form End -->
+
+
+			<!-- Footer Start -->
+			<div class="container-fluid position-relative overlay-top bg-dark text-white-50 py-5" style="margin-top: 90px;">
+				<div class="container mt-5 pt-5">
+					<div class="row">
+						<div class="col-md-6 mb-5">
+							<a href="index.html" class="navbar-brand">
+								<img src="{{asset('img/logo-2018new2.png')}}"/>
+							</a>
+							<p class="m-0">Première Université Privée à Fès à avoir obtenu le statut de la Reconnaissance par l’Etat en mai 2018, l’UPF délivre désormais des diplômes automatiquement équivalents aux diplômes de l’Etat. Elle œuvre depuis 2006 à offrir des formations d’excellence dans les métiers d’avenir</p>
+						</div>
+						<div class="col-md-6 mb-5">
+							<h3 class="text-white mb-4">Newsletter</h3>
+							<div class="w-100">
+								<div class="input-group">
+									<input type="text" class="form-control border-light" style="padding: 30px;" placeholder="Your Email Address">
+									<div class="input-group-append">
+										<button style="background-color: #b11b81" class="btn btn-primary px-4">Sign Up</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4 mb-5">
+							<h3 class="text-white mb-4">Rejoindre - Nous</h3>
+							<p>
+								<i class="fa fa-map-marker-alt mr-2"></i>Lotissement Quaraouiyine Route Ain Chkef, Fès 30000</p>
+							<p>
+								<i class="fa fa-phone-alt mr-2"></i>+212 535 610 320</p>
+							<p>
+								<i class="fa fa-envelope mr-2"></i>
+								info@upf.ac.ma</p>
+							<div class="d-flex justify-content-start mt-4">
+								<a class="text-white mr-4" href="https://freewebsitecode.com/">
+									<i class="fab fa-2x fa-twitter"></i>
+								</a>
+								<a class="text-white mr-4" href="https://facebook.com/freewebsitecode/">
+									<i class="fab fa-2x fa-facebook-f"></i>
+								</a>
+								<a class="text-white mr-4" href="https://freewebsitecode.com/">
+									<i class="fab fa-2x fa-linkedin-in"></i>
+								</a>
+								<a class="text-white" href="https://youtube.com/freewebsitecode/">
+									<i class="fab fa-2x fa-youtube"></i>
+								</a>
+							</div>
+						</div>
+						<div class="col-md-4 mb-5">
+							<h3 class="text-white mb-4">Our Courses</h3>
+							<div class="d-flex flex-column justify-content-start">
+								<a class="text-white-50 mb-2" href="#">
+									<i class="fa fa-angle-right mr-2"></i>Web Design</a>
+								<a class="text-white-50 mb-2" href="#">
+									<i class="fa fa-angle-right mr-2"></i>Apps Design</a>
+								<a class="text-white-50 mb-2" href="#">
+									<i class="fa fa-angle-right mr-2"></i>Marketing</a>
+								<a class="text-white-50 mb-2" href="#">
+									<i class="fa fa-angle-right mr-2"></i>Research</a>
+								<a class="text-white-50" href="#">
+									<i class="fa fa-angle-right mr-2"></i>SEO</a>
+							</div>
+						</div>
+						<div class="col-md-4 mb-5">
+							<h3 class="text-white mb-4">Quick Links</h3>
+							<div class="d-flex flex-column justify-content-start">
+								<a class="text-white-50 mb-2" href="#">
+									<i class="fa fa-angle-right mr-2"></i>Privacy Policy</a>
+								<a class="text-white-50 mb-2" href="#">
+									<i class="fa fa-angle-right mr-2"></i>Terms & Condition</a>
+								<a class="text-white-50 mb-2" href="#">
+									<i class="fa fa-angle-right mr-2"></i>Regular FAQs</a>
+								<a class="text-white-50 mb-2" href="#">
+									<i class="fa fa-angle-right mr-2"></i>Help & Support</a>
+								<a class="text-white-50" href="#">
+									<i class="fa fa-angle-right mr-2"></i>Contact</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container-fluid bg-dark text-white-50 border-top py-4" style="border-color: rgba(256, 256, 256, .1) !important;">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+							<p class="m-0">Copyright &copy;
+								<a class="text-white" href="https://freewebsitecode.com/">Université Privée à Fès</a>. All Rights Reserved.
+							</p>
+						</div>
+						<div class="col-md-6 text-center text-md-right">
+							<p class="m-0">Designed by
+								<a class="text-white" href="https://freewebsitecode.com">Université Privée à Fès</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Footer End -->
+
+
+			<!-- Back to Top -->
+			<a href="#" style="background-color: #b11b81" class="btn btn-lg btn-primary rounded-0 btn-lg-square back-to-top">
+				<i class="fa fa-angle-double-up"></i>
+			</a>
+
+
+			<!-- JavaScript Libraries -->
+			<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+			<script src="{{asset('lib/easing/easing.min.js')}}"></script>
+			<script src="{{asset('lib/waypoints/waypoints.min.js')}}"></script>
+			<script src="{{asset('lib/counterup/counterup.min.js')}}"></script>
+			<script src="{{asset('lib/owlcarousel/owl.carousel.min.js')}}"></script>
+
+			<!-- Template Javascript -->
+			<script src="{{asset('js/main.js')}}"></script>
+		</body>
+	</body>
+</html>
